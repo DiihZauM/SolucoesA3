@@ -30,6 +30,18 @@ body{
     color: #35339a;
 }
 
+.cadastro-card-header h1{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+    }
+    
+    .cadastro-card-header h1 + div{
+        font-size: calc(1rem* .8);
+        opacity: .8;
+    }
+    
+
 .cadastro-card-header{
     margin-bottom: 2rem; 
  }
