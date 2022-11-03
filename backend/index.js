@@ -1,12 +1,22 @@
 const express = require('express');
+const cors = require('cors');
+const configurations = require('./src/configurations/firebase');
+const firebase = require('firebase');
 
-const user = require('./routes/user_routes');
+firebase.initializeApp(configurations);
+const database = firebase.firestore();
+const User = database.collection("users");
+
 const app = express();
+app.use(express.json());
+app.use(cors());
 
-app.use('/users', user);
+app.post('/user/register', async (req, res) => {
+    const data = req.body;
+    await User.add(data);
+    res.status(201).send({ msg: "Usuário criado com sucesso!" });
+})
 
-let port = 8000;
-
-app.listen(port, ()=>{
-    console.log(`Servidor em execução na porta ${port}`);
+app.listen(3000, () => {
+    console.log("Servidor ativo http://localhost:3000");
 })
