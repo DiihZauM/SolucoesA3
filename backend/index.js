@@ -12,16 +12,16 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-/*
-const pool = firebase.createPool({
-    host: DB_HOST,
-    user: DB_id,
-    password: DB_PASSWORD,
-    database: DB_DATABASE,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0,
-  });*/
+//Palavra-chave para começar uma sessão
+app.use(session({secret:"teste123"}));
+
+//Login do usuário(Em andamento)
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+app.use('/src', express.static(path.join(__dirname, 'src')));
+app.set('frontend', path.join(__dirname, '/frontend'));
+
+
 
 //Registro de usuário
 app.post('/user/register', async (req, res) => {
