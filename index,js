@@ -1,0 +1,64 @@
+const express = require('express');
+const cors = require('cors');
+const configurations = require('./src/configurations/firebase');
+const firebase = require('firebase');
+const { request } = require('express');
+
+firebase.initializeApp(configurations);
+const database = firebase.firestore();
+const User = database.collection("users");
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+//Registro de usuário
+app.post('/user/register', async (req, res) => {
+    const data = req.body;
+    await User.add(data);
+    res.status(201).send({ msg: "Usuário criado com sucesso!" });
+})
+
+app.get('/get-all-users', async (req, res) => {
+    const snapshot = await User.get();
+    const listUsers = snapshot.docs.map((doc)=>({id: doc.id, ...doc.data()}));
+    res.send(listUsers);
+})
+
+//Atualização de Usuário
+
+app.put('/user/update/:id', async (req, res) => {
+    const id = req.params.id;
+    await User.doc(id).update(req.body);
+    res.send({msg: "Usuário atualizado com sucesso !"});
+})
+
+app.listen(3000, () => {
+    console.log("Servidor ativo http://localhost:3000");
+})
+
+//Login do usuário
+
+//Primeira alternativa
+/* app.post('/user/login', async(req, res) => {
+    const crm = req.body;
+    await User.add(crm);
+    res.status(201).send({ msg: "Login efetuado com sucesso!" });
+}); 
+*/
+
+//Segunda alternativa
+
+app.post('/user/login', async(req, res) => {
+    const crm = req.body;
+    firebase.auth().signInWithCrm(crm)
+    .then((userCredential) => {
+    var user = userCredential.user;
+    res.status(201).send({ msg: "Login efetuado com sucesso!" });
+    })
+    .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    });
+    res.status(451).send({ msg: "Login e/ou senha incorretos!" });
+})
