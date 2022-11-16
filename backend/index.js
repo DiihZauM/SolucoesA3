@@ -1,22 +1,18 @@
+'use strict';
 const express = require('express');
 const cors = require('cors');
-const configurations = require('./src/configurations/firebase');
-const firebase = require('firebase');
-
-firebase.initializeApp(configurations);
-const database = firebase.firestore();
-const User = database.collection("users");
+const bodyParser = require('body-parser');
+const config = require('./config');
+const userRoutes = require('./src/routes/user-routes');
+const courseRoutes = require('./src/routes/course-routes');
 
 const app = express();
+
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json());
 
-app.post('/user/register', async (req, res) => {
-    const data = req.body;
-    await User.add(data);
-    res.status(201).send({ msg: "Usuário criado com sucesso!" });
-})
+app.use('/api', userRoutes.routes);
+app.use('/api', courseRoutes.routes);
 
-app.listen(3000, () => {
-    console.log("Servidor ativo http://localhost:3000");
-})
+app.listen(config.port, () => console.log('App listening on url http:/localhost:' + config.port));
