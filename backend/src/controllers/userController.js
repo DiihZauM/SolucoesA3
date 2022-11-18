@@ -6,8 +6,9 @@ const firestore = firebase.firestore();
 
 const createUser = async (req, res) => {
     try {
+        const id = req.body.crm;
         const data = req.body;
-        await firestore.collection('users').doc().set(data);
+        await firestore.collection('users').doc(id).set(data);
         res.send('Usuário cadastrado com sucesso!');
     } catch (err) {
         res.status(400).send(err.message);
@@ -73,9 +74,26 @@ const updateUser = async (req, res) => {
     }
 }
 
+const login = async (req, res) => {
+    try {
+        const crm = req.query.crm;
+        const login = await firestore.collection('users').doc(crm);
+        const data = await login.get();
+        if (!data.exists) {
+            res.status(400).send('Usuário com CRM não encontrado');
+        }
+        else {
+            res.send(data.data());
+        }
+    } catch {
+        res.status(400).send(err.message);
+    }
+};
+
 module.exports = {
     createUser,
     getAllUsers,
     getUser,
-    updateUser
+    updateUser,
+    login
 }
