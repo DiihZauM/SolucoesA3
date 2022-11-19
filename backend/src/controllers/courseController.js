@@ -49,7 +49,16 @@ const getCourse = async (req, res) => {
         if (!data.exists) {
             res.status(400).send('Curso com ID não encontrado');
         } else {
-            res.send(data.data());
+            const reusult = new Course(
+                data.id,
+                data.data().author,
+                data.data().image,
+                data.data().avatarAuthor,
+                data.data().description,
+                data.data().specialization,
+                data.data().title,
+            )
+            res.send(reusult);
         }
 
     } catch (err) {
