@@ -1,4 +1,3 @@
-<app-cabecalho></app-cabecalho>
 <div class="cadastro-card-header">
     <div class="cadastro-card">
     <form class="form-card-item" [formGroup]="userForm">
@@ -22,7 +21,7 @@
             <input type="password" placeholder="Senha" required autofocus formControlName="password">
         </div>
         <div class="form-item">
-            <button type="submit" (click)="register()">Cadastrar</button>
+            <button type="submit" routerLink="/home" (click)="register()">Cadastrar</button>
         </div>
     </form>
 </div>
