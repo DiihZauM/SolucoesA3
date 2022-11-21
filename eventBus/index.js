@@ -110,12 +110,13 @@ app.post('/modules', (req, res) => {
 });
 app.get('/modules/:id', (req, res) => {
     const evento = req.params.id;
+    console.log(evento)
     eventos.push(evento)
     //envia o evento para o microsserviço de cursos
     axios.get(`http://localhost:8081/api/modules/${evento}`)
     .then((response) => res.status(200).send(response.data))
     .catch((err) => {
-        console.log("Microsserviço de cursos fora do ar.")
+        console.log("Microsserviço de cursos fora do ar.", err)
         res.status(400).send(err.response.data)
     });
 });

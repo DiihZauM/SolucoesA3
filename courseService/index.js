@@ -11,6 +11,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/api', courseRoutes.routes);
-app.use('/api', courseRoutes.routes);
+app.use('/api', moduleRoutes.routes);
 
 app.listen(config.port, () => console.log('App listening on url http://localhost:' + config.port));

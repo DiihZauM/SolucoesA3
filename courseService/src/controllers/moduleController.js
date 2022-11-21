@@ -2,6 +2,7 @@
 
 const firebase = require('../../db');
 const Module = require('../models/module_model');
+const firestore = firebase.firestore();
 
 const createModule = async (req, res) => {
     try {
