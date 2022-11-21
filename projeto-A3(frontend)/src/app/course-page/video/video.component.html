@@ -1,0 +1,42 @@
+<header>
+    <h1>{{course.title}}</h1>
+    <h2>{{lesson.title}}</h2>
+</header>
+<main>
+<vg-player class="player-curso">
+    <vg-overlay-play></vg-overlay-play>
+    <vg-buffering></vg-buffering>
+    <vg-scrub-bar>
+        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+        <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+    </vg-scrub-bar>
+    <vg-controls>
+        <vg-play-pause></vg-play-pause>
+        <vg-playback-button></vg-playback-button>
+        <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+        <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+        <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+        <vg-track-selector></vg-track-selector>
+        <vg-mute></vg-mute>
+        <vg-volume></vg-volume>
+        <vg-fullscreen></vg-fullscreen>
+    </vg-controls>
+    <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" >
+        <source [src]="lesson.videosource" type="video/mp4">
+    </video>
+</vg-player>
+
+<div class="modules"></div>
+<h2 id="modulesTitle">Módulos</h2>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let module of modules">
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{module.name}}</mat-panel-title>
+        </mat-expansion-panel-header>
+            <span *ngFor="let lesson of module.lessons">
+            <p id="lesson" routerLink="./" [queryParams]="{'courseId': course.id,'moduleId': module.moduleId, 'lessonId': lesson.lessonKey}" routerLinkActive="active" ariaCurrentWhenActive="page">{{lesson.title}}</p>
+            <mat-divider></mat-divider>
+            </span>
+        </mat-expansion-panel>
+</mat-accordion>

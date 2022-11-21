@@ -1,0 +1,8 @@
+<mat-toolbar class="navMenu">
+    <h2 id="name" routerLink="/home">LabClass</h2>
+    <mat-card-actions class="navMenuActions">
+        <button *ngIf="!this.isLogged" class="accessButton"  mat-stroked-button (click)="login()" >Login</button>
+        <button *ngIf="!this.isLogged" class="accessButton" id='#cadastro'   mat-flat-button color="success"  routerLink="/cadastro">Cadastro</button>
+        <img  *ngIf="this.isLogged" id="avatar-user-image" routerLink="/perfil" [queryParams]="{'crm': this.crm}">
+    </mat-card-actions>
+</mat-toolbar>

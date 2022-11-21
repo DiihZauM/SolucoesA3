@@ -1,0 +1,58 @@
+.mat-expansion-panel{
+  margin: 2%;
+  background-color:  #7D9ED999;
+  height: fit-content;
+  border-radius: 20px;
+}
+mat-panel-title{
+    padding: 1%;
+    color: black;
+    font-size: x-large;
+}
+#lesson {
+    color: black;
+    padding: 1%;
+    padding-left: 3%;
+    font-size: large;
+}
+#lesson:hover {
+    width: 100%;
+    color: rgb(0, 36, 59);
+}
+img{
+    display: block;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+header{
+    margin: 2%;
+    background-color: transparent;
+    color: rgb(0, 29, 29);
+}
+header #title{
+    font-size: xx-large;
+}
+#description{
+    padding-inline: 2%;
+    padding-bottom: 3%;
+    font-size: large;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    height: fit-content;  
+    max-height: 200px;
+}
+hr {
+    width: 100%;
+}
+.description {
+    background-color: #7D9ED999;
+    width: 100%;
+    border-radius: 10px;
+}
+.description  #title{
+    padding-top: 1.5%;
+    padding-left: 2%;
+}

@@ -1,0 +1,41 @@
+.navMenu {
+    background-color: #5F7DF1;
+    opacity: 60%;
+    height: fit-content;
+}
+.navMenu #name {
+    font-family: 'Podkova';
+    font-size: 200%;
+    color: rgb(7, 0, 39);
+    width: fit-content;
+}
+.navMenuActions .accessButton {
+    text-align: left;
+    width: 50%;
+    color: rgb(7, 0, 39);
+    border-radius: 10px;
+}
+.mat-success {
+    background-color: #849cfc;
+    color: #fff;
+}
+
+#avatar-user-image {
+    margin-left: auto;
+    height: 50px;
+    width: 50px;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/2784/2784403.png);
+    background-size: cover;
+    border-radius: 50%;
+    background-color: rgba(127, 255, 212, 0);
+}
+.navMenuActions {
+    margin-left: auto;
+    float: left;
+    margin-top: 1%;
+    width: fit-content;
+    height: fit-content;   
+}
+mat-toolbar{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+}

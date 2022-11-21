@@ -1,0 +1,22 @@
+<header>
+    <h1 id="title">{{course.title}}</h1>
+    <h3 id="title">by {{course.author}}</h3>
+    <img [src]="course.image">
+    <hr>
+    <div class="description">
+        <h3 id="title">Descrição:</h3>
+        <p id="description">{{course.description}}</p>
+    </div>
+    <hr>
+</header>
+<mat-accordion >
+    <mat-expansion-panel *ngFor="let module of modules">
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{module.name}}</mat-panel-title>
+        </mat-expansion-panel-header>
+            <span *ngFor="let lesson of module.lessons">
+            <p id="lesson" routerLink="./aula" [queryParams]="{'courseId': course.id,'moduleId': module.moduleId, 'lessonId': lesson.lessonKey}" routerLinkActive="active" ariaCurrentWhenActive="page">{{lesson.title}}</p>
+            <mat-divider></mat-divider>
+            </span>
+        </mat-expansion-panel>
+</mat-accordion>

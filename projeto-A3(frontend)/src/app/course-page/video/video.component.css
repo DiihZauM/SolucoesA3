@@ -1,0 +1,77 @@
+header {
+    margin: 2%
+}
+main{
+    margin: 2%;
+    height: 60%;
+}
+.player-curso {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.player-curso video{
+    width: 100%;
+}
+
+.course-itens {
+    height: 100%;
+    width: 33%;
+    float: right;
+}
+
+.summary {
+    width: 57%;
+    margin-left: 2%;
+    border:1px solid blueviolet;
+    background-color: white;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .player-curso {
+        width: 100%;
+    }
+    .course-itens {
+        margin-top: 4%;
+        height: 100px;
+        width: 100%;
+        float: right;
+    }
+    .mat-expansion-panel{
+        background-color:  #7D9ED999;
+        height: fit-content;
+        width: 100%;
+    
+      }
+}
+.mat-expansion-panel{
+    margin: 2%;
+    background-color:  #7D9ED999;
+    height: fit-content;
+    border-radius: 20px;
+  }
+  mat-panel-title{
+      padding: 1%;
+      color: black;
+      font-size: x-large;
+  }
+  #lesson {
+      color: black;
+      padding: 1%;
+      padding-left: 3%;
+      font-size: large;
+  }
+  #lesson:hover {
+      width: 100%;
+      color: rgb(0, 36, 59);
+  }
+.modules {
+    width: auto;
+}
+
+.modulesTitle {
+    margin: 5%;
+    background-color: aquamarine;
+}

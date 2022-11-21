@@ -1,0 +1,23 @@
+<ngu-carousel #myCarousel [inputs]="carouselTileConfig" [dataSource]="this.coursesList | async">
+    <button mat-icon-button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5 : 1" >
+        <mat-icon>navigate_before</mat-icon>
+    </button>
+    <ngu-tile *nguCarouselDef="let item; index as i; let ani = animate" >
+        <mat-card class="course">
+            <mat-card-header>
+                <div mat-card-avatar 
+                [style.background-image]="'url('+ item.avatarAuthor+')'" 
+                [style.background-size]="'cover'" ></div>
+                <mat-card-title>{{item.title}}</mat-card-title>
+                <mat-card-subtitle>{{item.author}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="item.image" routerLink="/curso"  [state]="item"  [queryParams]="{'courseId': item.id}" routerLinkActive="active" ariaCurrentWhenActive="page">
+            <mat-card-content>
+                <p>{{item.description}}</p>
+            </mat-card-content>
+        </mat-card>
+      </ngu-tile>
+      <button mat-icon-button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5 : 1">
+        <mat-icon>navigate_next</mat-icon>
+      </button>
+</ngu-carousel>

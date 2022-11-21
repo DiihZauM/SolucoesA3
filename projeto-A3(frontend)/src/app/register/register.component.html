@@ -1,0 +1,29 @@
+<app-cabecalho></app-cabecalho>
+<div class="cadastro-card-header">
+    <div class="cadastro-card">
+    <form class="form-card-item" [formGroup]="userForm">
+        <h1>Cadastro</h1>
+        <div class="form-item">
+            <span class="name"></span>
+            <input type="text" placeholder="Nome"  required autofocus formControlName="name">
+            <span class="sobrenome"></span>
+            <input type="email" placeholder="email"  required autofocus formControlName="email">
+        </div>
+        <div class="form-item">
+            <span class="dt nascimento"></span>
+            <input type="text" placeholder="Idade" required autofocus formControlName="age">
+            <span class="genero"></span>
+            <input type="text" placeholder="Genero" required autofocus formControlName="gender">
+        </div>
+        <div class="form-item">
+            <span class="crm"></span>
+            <input type="text" placeholder="CRM" required autofocus formControlName="crm">
+            <span class="Senha"></span>
+            <input type="password" placeholder="Senha" required autofocus formControlName="password">
+        </div>
+        <div class="form-item">
+            <button type="submit" (click)="register()">Cadastrar</button>
+        </div>
+    </form>
+</div>
+</div>

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
+
+.container{display: grid; place-items: center} 
+
+h1 {
+    text-align: center;
+    margin-top: 10%;
+    font-size: xx-large;
+}
+
+img{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 15%;
+}
+
+
+
+form {
+    font-size: x-large;
+    text-align: left;
+    min-width: 70%;
+    background-color: #7D9ED999;
+    border-radius: 20px;
+}
+.form-item {
+    padding-top: 7%;
+    margin-inline: 3%;
+}
+
+.exit button{
+    background: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 3%;
+}
+
+.exit button:hover{
+    background-color: rgba(0,0,0, .85);
+    cursor: pointer;
+    font-weight: bold;
+}
