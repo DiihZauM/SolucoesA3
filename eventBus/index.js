@@ -25,7 +25,7 @@ app.post('/user', (req, res) => {
     eventos.push(evento)
     //envia o evento para o microsserviço de usuarios
     axios.post('http://localhost:8082/api/user', evento)
-    .then((response) => res.status(200).send(response.data))
+    .then((response) => res.status(200).send("Usuario cadastrado com sucesso!!!"))
     .catch((err) => {
         console.log("Microsserviço de usuarios fora do ar.")
         res.status(400).send(err.response.data)
@@ -43,10 +43,10 @@ app.get('/users', (req, res) => {
     });
 });
 app.get('/user/:id', (req, res) => {
-    const evento = req.body;
+    const evento = req.params.id;
     eventos.push(evento)
     //envia o evento para o microsserviço de usuarios
-    axios.get('http://localhost:8082/api/user/:id', evento)
+    axios.get(`http://localhost:8082/api/user/${evento}`, evento)
     .then((response) => res.status(200).send(response.data))
     .catch((err) => {
         console.log("Microsserviço de usuarios fora do ar.")
@@ -109,10 +109,10 @@ app.post('/modules', (req, res) => {
     });
 });
 app.get('/modules/:id', (req, res) => {
-    const evento = req.body;
+    const evento = req.params.id;
     eventos.push(evento)
     //envia o evento para o microsserviço de cursos
-    axios.get('http://localhost:8081/api/modules/:id', evento)
+    axios.get(`http://localhost:8081/api/modules/${evento}`)
     .then((response) => res.status(200).send(response.data))
     .catch((err) => {
         console.log("Microsserviço de cursos fora do ar.")
