@@ -18,7 +18,7 @@ export class CommunicationService {
   }
 
   requestModules(courseId: string): Observable<Array<ModuleType>> {
-    return this.http.get<Array<ModuleType>>(`assets/modules.json?courserId=${courseId}`)
+    return this.http.get<Array<ModuleType>>(`http://localhost:8080/modules/${courseId}`)
   }
 
   requestUser(id: string): Observable<UserType> {

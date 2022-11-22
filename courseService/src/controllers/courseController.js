@@ -16,7 +16,6 @@ const createCourse = async (req, res) => {
 
 const getAllCourses = async (req, res) => {
     try {
-        console.log('id')
 
         const courses = await firestore.collection('courses');
         const data = await courses.get();
